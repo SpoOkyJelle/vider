@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'SegoeUI';
+    src: local('SegoeUI'), url(./fonts/SegoeUI.ttf) format('ttf');
+}
+
+
+* {
+    background-color: #1B262C;
+    color: #fff;
+    font-family: SegoeUI;
+}
+
+.header h4 {
+    color: #58A5D8;
+}
+.header h2 {
+    color: #58A5D8;
+}
+.header .loading-text {
+    margin-top: 10em;
+}
+
+.w-90 {
+    width: 95%!important;
+}
+
+.rounded {
+    border-radius: 15px !important;
+}
+
+.btn-session {
+    color: #fff !important;
+    background-color: #FF6824 !important;
+
+    padding: 0.8em 3.5em !important;
+    border-radius: 50px !important;
+
+    font-size: 1.3em !important;
+
+    position: fixed;
+    bottom: 0;
+    z-index: 1030;
+}
+.btn-done {
+    color: #fff !important;
+    background-color: #58A5D8 !important;
+
+    padding: 0.8em 3.5em !important;
+    border-radius: 50px !important;
+
+    font-size: 1.3em !important;
+
+    position: fixed;
+    bottom: 0;
+    z-index: 1030;
+}
+
+.selectCategory h2 {
+    margin-top: 4em;
+    color: #58A5D8 !important;
+}
+.categories {
+    margin-top: 6em !important;
+
+    background-color: #1B262C;
+    -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+    box-shadow: none;
+}
+.categories li {
+    margin: 0.6em;
+}
+.categories p {
+    margin-left: 25%;
+}
+
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+}
