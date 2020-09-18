@@ -5,7 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 class SessionButton extends Component {
-
     render(){
         return (
             <button onClick={ this.props.hideOverlay } className="btn btn-session mb-5">Make Session</button>

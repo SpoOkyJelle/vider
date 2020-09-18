@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react';
 
 import SessionButton from './SessionButton';
 import SelectCategory from './SelectCategory';
@@ -10,6 +9,7 @@ class PopularMovies extends Component {
         this.state = {
           error: null,
           isLoaded: false,
+          isClicked: false,
           items: []
         };
 
@@ -36,30 +36,34 @@ class PopularMovies extends Component {
     }
 
     hide_overlay() {
-        let popularMovies = document.getElementById("popularMovies");
-        popularMovies.innerHTML = '';
+      this.setState({ isClicked: true });
     }
 
     render(){
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded, items, isClicked } = this.state;
         if (error) {
           return <div>Error: {error.message}</div>;
         } else if (!isLoaded) {
           return <div>Loading...</div>;
         } else {
-            return (
-                <div id="popularMovies" className="d-flex flex-column align-items-center">
-                    <h2 className="mt-5">Popular movies:</h2>
-                    <div className="movieCard">
-                        {items.slice(0, 10).map(item => (
-                            <div className="d-flex flex-column align-items-center mt-5" key={item.id}>
-                                <img className="w-90" style={{ borderRadius: '15px' }} src={ 'https://image.tmdb.org/t/p/w500/' + item.poster_path} alt={ item.poster_path } />
-                            </div>
-                        ))}
-                    </div>
-                    <SessionButton hideOverlay={this.hide_overlay}  />
+          if(!isClicked){
+            return(
+              <div id="popularMovies" className="d-flex flex-column align-items-center">
+                <h2 className="mt-5">Popular movies:</h2>
+                <div className="movieCard">
+                    {items.slice(0, 10).map(item => (
+                        <div className="d-flex flex-column align-items-center mt-5" key={item.id}>
+                            <img className="w-90" style={{ borderRadius: '15px' }} src={ 'https://image.tmdb.org/t/p/w500/' + item.poster_path} alt={ item.poster_path } />
+                        </div>
+                    ))}
                 </div>
+                <SessionButton hideOverlay={this.hide_overlay}  />
+              </div>
             );
+          }
+          else{
+            return <SelectCategory />
+          }          
         }
     }
 }

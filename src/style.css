@@ -75,22 +75,24 @@
 }
 
 
-
-::-webkit-scrollbar {
-    width: 5px;
+.swipe {
+    position: absolute;
+    border-radius: 30px;
+    max-width: 80%;
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-    background: #f1f1f1; 
+.cardContainer {
+    height: 300px !important;
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background: #888; 
+.movieCard {
+    border: 0px;
+    background-color: transparent !important;
+    position: relative !important;
+    background-size: cover !important;
+    background-position: center !important;
 }
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+.movieCard img {
+    border-radius: 30px !important;
+    width: 100%;
 }

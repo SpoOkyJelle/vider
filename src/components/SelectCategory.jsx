@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 
-import Header from './Header';
 import DoneButton from './DoneButton';
-import WheelPicker from 'react-simple-wheel-picker';
+import SwipeMovies from './SwipeMovies';
 
 class SelectCategory extends Component {
     constructor(props) {
@@ -10,7 +9,9 @@ class SelectCategory extends Component {
         this.state = {
           error: null,
           isLoaded: false,
-          items: []
+          items: [],
+          selectedItem: '',
+          isClicked: false,
         };
       }
     
@@ -23,7 +24,6 @@ class SelectCategory extends Component {
                     isLoaded: true,
                     items: result.genres
                 });
-                console.log(result.gengres);
             },
             (error) => {
                 this.setState({
@@ -34,27 +34,42 @@ class SelectCategory extends Component {
         )
     }
 
+    doneButtonClicked = () => {
+        this.setState({ isClicked: true });
+    }
+
     render(){
-        const { error, isLoaded, items } = this.state;
+        const { error, isLoaded, items, isClicked, selectedItem } = this.state;
 
         if (error) {
             return <div>Error: {error.message}</div>;
           } else if (!isLoaded) {
             return <div>Loading...</div>;
           } else {
-            return (
-              <React.Fragment>
-                <div className="selectCategory">
-                    <h2>Select a movie category</h2>
-                    <select className="categories">
-                        {items.map(item => (
-                            <option key={ item.id }>{ item.name }</option>
-                        ))}
-                    </select>
-                </div>
-                <DoneButton />
-              </React.Fragment>
-            );
+            if(!isClicked){
+                return(
+                    <React.Fragment>
+                    <div className="selectCategory">
+                        <h2>Select a movie category</h2>
+                        <select className="categories" 
+                            onChange={ (e) => this.setState({ selectedItem: e.target.value }) }
+                            >
+    
+                            {items.map(item => (
+                                <option value={ item.id } key={ item.id }>{ item.name }</option>
+                            ))}
+    
+                        </select>
+                    </div>
+                    <DoneButton doneButton={ this.doneButtonClicked } />
+                    </React.Fragment>
+                );
+            }
+            else{
+                return (
+                    <SwipeMovies selectedItem={ selectedItem } />
+                );
+            }
         }
     }
 }
