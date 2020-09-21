@@ -8,8 +8,6 @@ import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-
-
 //const socket = io.connect('192.168.2.114:4000');
 
 class App extends Component {
