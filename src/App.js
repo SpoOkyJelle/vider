@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import io from 'socket.io-client';
 
 import SplashScreen from './components/Screens/SplashScreen';
 import HomeScreen from './components/Screens/HomeScreen';
@@ -7,24 +6,21 @@ import HomeScreen from './components/Screens/HomeScreen';
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
-//const socket = io.connect('192.168.2.114:4000');
-
 class App extends Component {
   constructor(props) {
     super();
     this.state = {
-      renderSplashscreen: true
+      renderSplashscreen: true,
+      data: {},
     };
   }
 
   componentDidMount() {
     setTimeout(() => {
-        this.setState({renderSplashscreen: false});
+      this.setState({renderSplashscreen: false});
     }, 500);
   }
-
-
+  
   render(){
     if(this.state.renderSplashscreen)
       return <SplashScreen/>;
