@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 // import io from 'socket.io-client';
 
-import SplashScreen from './components/SplashScreen';
-import HomeScreen from './components/HomeScreen';
+import SplashScreen from './components/Screens/SplashScreen';
+import HomeScreen from './components/Screens/HomeScreen';
 
 import './style.css';
 import 'bootstrap/dist/css/bootstrap.min.css';

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import DoneButton from './DoneButton';
-import SwipeMovies from './SwipeMovies';
+import DoneButton from './Buttons/DoneButton';
+import SwipeMoviesScreen from './Screens/SwipeMoviesScreen';
 
 class SelectCategory extends Component {
     constructor(props) {
@@ -19,19 +19,19 @@ class SelectCategory extends Component {
         fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=1694b915c570c9520c9f86647cb8e91b")
         .then(res => res.json())
             .then(
-            (result) => {
-                this.setState({
-                    isLoaded: true,
-                    items: result.genres
-                });
-            },
-            (error) => {
-                this.setState({
-                    isLoaded: true,
-                    error
-                });
-            }
-        )
+                (result) => {
+                    this.setState({
+                        isLoaded: true,
+                        items: result.genres
+                    });
+                },
+                (error) => {
+                    this.setState({
+                        isLoaded: true,
+                        error
+                    });
+                }
+            )
     }
 
     doneButtonClicked = () => {
@@ -67,7 +67,7 @@ class SelectCategory extends Component {
             }
             else{
                 return (
-                    <SwipeMovies selectedItem={ selectedItem } />
+                    <SwipeMoviesScreen selectedItem={ selectedItem } />
                 );
             }
         }

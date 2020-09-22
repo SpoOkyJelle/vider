@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import SessionButton from './SessionButton';
+import SessionButton from './Buttons/SessionButton';
 import SelectCategory from './SelectCategory';
 
 class PopularMovies extends Component {
@@ -19,20 +19,20 @@ class PopularMovies extends Component {
   componentDidMount() {
     fetch("https://api.themoviedb.org/3/movie/popular?api_key=1694b915c570c9520c9f86647cb8e91b")
       .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.results
-          });
-        },
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
-      )
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              items: result.results
+            });
+          },
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error
+            });
+          }
+        )
   }
 
   isSessionButtonClicked() {

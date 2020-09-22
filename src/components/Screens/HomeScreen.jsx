@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import Header from './Header';
-import PopularMovies from './PopularMovies';
+import Header from '../Header';
+import PopularMovies from '../PopularMovies';
 
 class HomeScreen extends Component {
   render() {

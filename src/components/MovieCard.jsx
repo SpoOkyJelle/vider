@@ -7,12 +7,13 @@ class MovieCard extends Component {
         super(props);
         this.state = {
             items: props.db.results,
-            count: 50,
+
+            //count: 50,
         }
     }
     
     onSwipe = (direction) => {
-        //console.log('You swiped: ' + direction)
+        //this.setState({ count: this.props.count + 1 });        
     }
       
     onCardLeftScreen = (myIdentifier) => {
@@ -20,17 +21,17 @@ class MovieCard extends Component {
     }
 
     render(){
-        const { items, count } = this.state;
-        console.log(count)
+        const { items } = this.state;
+        
         return(
             <div className="cardContainer d-flex justify-content-center mt-5">
-                {items.slice(0, 10).map((item) =>
-                    <TinderCard key={ item.id } className="swipe" onSwipe={this.onSwipe} onCardLeftScreen={() => this.onCardLeftScreen('fooBar')} >
+                { items.slice(0, 10).map((item) =>
+                    <TinderCard key={ item.id } className="swipe" onSwipe={ this.onSwipe } onCardLeftScreen={ () => this.onCardLeftScreen('fooBar') } >
                         <div className='movieCard align-items-center'>
-                            <img className="" src={ 'https://image.tmdb.org/t/p/w500/' + item.poster_path } alt="movieImg" />
+                            <img src={ 'https://image.tmdb.org/t/p/w500/' + item.poster_path } alt="movieImg" />
                         </div>
                     </TinderCard>
-                )}
+                ) }
             </div>
         );
     }

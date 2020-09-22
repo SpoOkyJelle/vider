@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import logo from '../img/vider.png';
+import logo from '../../img/vider.png';
 
 class SplashScreen extends Component {
     render(){
